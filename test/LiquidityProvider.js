@@ -35,6 +35,7 @@ describe("LiquidityProvider", function () {
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 6000;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -78,6 +79,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -85,11 +89,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 9000;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
       
+      width = 9000;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -133,6 +142,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -140,11 +152,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 5000;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 5000;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -188,6 +205,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -195,11 +215,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 9950;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 9950;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -243,6 +268,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -250,11 +278,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 7500;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 7500;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -298,6 +331,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -305,11 +341,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 5000;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 5000;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -353,6 +394,9 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
@@ -360,11 +404,16 @@ describe("LiquidityProvider", function () {
       const lowerPrice = 1.0001 ** Number(position.tickLower);
 
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
     width = 5000;
     it(`Test liquidity with width = ${width}`, async function () {
       const { liquidityProvider, nfpManager, pool, owner, token0, token1 } = await loadFixture(deployContract);
 
+      width = 5000;
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
       const address0 = "0x2DF3ace03098deef627B2E78546668Dd9B8EB8bC";
@@ -408,13 +457,20 @@ describe("LiquidityProvider", function () {
         gasLimit: 30000000, 
       });
 
+      const amount0_afterTransaction = Number(await token0.balanceOf(owner));
+      const amount1_afterTransaction = Number(await token1.balanceOf(owner));
+
       const positionId = await nfpManager.tokenOfOwnerByIndex(owner, 0);
       const position = await nfpManager.positions(positionId);
 
       const upperPrice = 1.0001 ** Number(position.tickUpper);
       const lowerPrice = 1.0001 ** Number(position.tickLower);
-
+      
       expect(10000 * (upperPrice - lowerPrice) / (lowerPrice + upperPrice)).to.be.approximately(width, width * 0.1);
+      expect(
+        Math.abs(amount0_afterTransaction) <= 0.03 * Math.abs(Number(amount1)) || 
+        Math.abs(amount1_afterTransaction) <= 0.03 * Math.abs(Number(amount0))
+      ).to.be.true;
     });
   });
 });
